@@ -1,7 +1,7 @@
 package co.creativitykills.groupchat.roomslist
 
 import android.content.Intent
-import co.creativitykills.groupchat.ChatRoomActivity
+import co.creativitykills.groupchat.chatroom.ChatRoomActivity
 import com.pusher.chatkit.rooms.Room
 
 class RoomsListNavigator(val activity: RoomsListActivity) : RoomsListContract.Navigator {
