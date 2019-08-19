@@ -1,10 +1,8 @@
 package co.creativitykills.groupchat.chatroom
 
-import com.pusher.chatkit.messages.Message
-
 interface ChatRoomContract {
     interface View {
-        fun updateMessage(message: Message)
+        fun updateMessage(message: com.pusher.chatkit.messages.multipart.Message)
         fun clearData()
     }
 

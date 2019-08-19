@@ -43,7 +43,7 @@ class ChatRoomPresenter(view: ChatRoomContract.View) : ChatRoomContract.Presente
         currentUser.subscribeToRoomMultipart(
                 roomId = roomId,
                 listeners = RoomListeners(
-                        onMessage = { message ->
+                        onMultipartMessage = { message ->
                             localView.updateMessage(message)
                         },
                         onErrorOccurred = { error ->

@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import co.creativitykills.groupchat.R
-import com.pusher.chatkit.messages.Message
 import kotlinx.android.synthetic.main.activity_chat_room.*
 
 class ChatRoomActivity : AppCompatActivity(), ChatRoomContract.View {
@@ -20,10 +19,9 @@ class ChatRoomActivity : AppCompatActivity(), ChatRoomContract.View {
         hideKeyboard()
     }
 
-    override fun updateMessage(message: Message) {
-        Log.d("TAG", message.text)
+    override fun updateMessage(message: com.pusher.chatkit.messages.multipart.Message) {
+        Log.d("TAG", message.toString())
         adapter.addMessage(message)
-        recycler_view.layoutManager?.scrollToPosition(adapter.itemCount - 1)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +58,9 @@ class ChatRoomActivity : AppCompatActivity(), ChatRoomContract.View {
     }
 
     private fun setUpRecyclerView() {
-        recycler_view.layoutManager = LinearLayoutManager(this@ChatRoomActivity)
+        val linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.stackFromEnd = true
+        recycler_view.layoutManager = linearLayoutManager
         recycler_view.adapter = adapter
     }
 }

@@ -6,7 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import co.creativitykills.groupchat.R
-import com.pusher.chatkit.messages.Message
+import com.pusher.chatkit.messages.multipart.Message
+import com.pusher.chatkit.messages.multipart.Payload
 
 class ChatMessageAdapter : RecyclerView.Adapter<ChatMessageAdapter.ViewHolder>() {
 
@@ -29,8 +30,22 @@ class ChatMessageAdapter : RecyclerView.Adapter<ChatMessageAdapter.ViewHolder>()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.userName.text = list[position].userId
-        holder.message.text = list[position].text
+        holder.userName.text = list[position].sender.name
+
+        list[position].parts.forEach { part ->
+            when (val payload = part.payload) {
+                is Payload.Inline -> {
+                    holder.message.text = payload.content
+                }
+                is Payload.Url -> {
+                    holder.message.text = payload.url.toString()
+                }
+                is Payload.Attachment -> {
+                }
+                else -> {
+                }
+            }
+        }
     }
 
 
