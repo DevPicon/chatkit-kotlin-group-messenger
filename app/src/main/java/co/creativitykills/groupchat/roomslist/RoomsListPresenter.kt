@@ -2,6 +2,7 @@ package co.creativitykills.groupchat.roomslist
 
 import android.util.Log
 import co.creativitykills.groupchat.AppController
+import co.creativitykills.groupchat.manager.createChatManager
 import com.pusher.chatkit.*
 import com.pusher.chatkit.rooms.Room
 import com.pusher.util.Result
@@ -74,17 +75,6 @@ class RoomsListPresenter(view: RoomsListContract.View, val navigator: RoomsListC
             }
         }
     }
-
-    private fun createChatManager() = ChatManager(
-            instanceLocator = "",
-            userId = "",
-            dependencies = AndroidChatkitDependencies(
-                    tokenProvider = ChatkitTokenProvider(
-                            endpoint = "",
-                            userId = ""
-                    )
-            )
-    )
 
     init {
         attachView(view)
