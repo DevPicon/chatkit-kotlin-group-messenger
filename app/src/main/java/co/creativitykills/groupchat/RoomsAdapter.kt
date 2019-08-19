@@ -24,7 +24,7 @@ class RoomsAdapter: RecyclerView.Adapter<RoomsAdapter.ViewHolder>() {
         return list.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent!!.context)
                                  .inflate(
                                          android.R.layout.simple_list_item_1,
@@ -35,11 +35,11 @@ class RoomsAdapter: RecyclerView.Adapter<RoomsAdapter.ViewHolder>() {
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        holder!!.roomName.text = list[position].name
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.roomName.text = list[position].name
     }
 
-    inner class ViewHolder(itemView: View?): RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
         override fun onClick(p0: View?) {
             roomClickedInterface.roomSelected(list[adapterPosition])
         }

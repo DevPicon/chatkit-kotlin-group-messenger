@@ -9,6 +9,7 @@ import org.json.JSONObject
 import android.widget.Toast
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
+import co.creativitykills.groupchat.roomslist.RoomsListActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
