@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import co.creativitykills.groupchat.R
-import co.creativitykills.groupchat.RoomsAdapter
 import com.pusher.chatkit.rooms.Room
 import kotlinx.android.synthetic.main.activity_rooms_list.*
 

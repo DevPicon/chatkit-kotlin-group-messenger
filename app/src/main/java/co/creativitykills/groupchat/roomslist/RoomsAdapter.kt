@@ -1,4 +1,4 @@
-package co.creativitykills.groupchat
+package co.creativitykills.groupchat.roomslist
 
 import android.view.View
 import android.view.ViewGroup
@@ -9,14 +9,14 @@ import android.support.v7.widget.RecyclerView
 
 class RoomsAdapter: RecyclerView.Adapter<RoomsAdapter.ViewHolder>() {
     private var list = ArrayList<Room>()
-    lateinit var roomClickedInterface:RoomClickedInterface
+    lateinit var roomClickedInterface: RoomClickedInterface
 
     fun addRoom(room:Room){
         list.add(room)
         notifyDataSetChanged()
     }
 
-    fun setInterface(roomClickedInterface:RoomClickedInterface){
+    fun setInterface(roomClickedInterface: RoomClickedInterface){
         this.roomClickedInterface = roomClickedInterface
     }
 
